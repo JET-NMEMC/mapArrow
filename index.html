@@ -33,10 +33,10 @@
             线型宽度 <input style="width: 60px;" type="text" name="" id="线宽" value="1">
         </div>
         <div>
-            箭头大小 <input style="width: 60px;" type="text" name="" id="箭头" value="1">
+            箭头大小 <input style="width: 60px;" type="text" name="" id="箭头" value="4">
         </div>
         <div>
-            缩放比例 <input style="width: 60px;" type="text" name="" id="比例" value="1">
+            缩放比例 <input style="width: 60px;" type="text" name="" id="比例" value="0.1">
         </div>
         <div>
             <br><button style="width: 100%;" onclick="clic()">开始绘制</button><br>
@@ -56,7 +56,8 @@
         </div> -->
     </div>
 
-    <script src="BaseMap.js"></script>
+    <!-- <script src="BaseMap.js"></script> -->
+    <script src="https://jet-nmemc.github.io/contourmap/BaseMap.js"></script>
     <script src="arrow/leaflet-arrows.js"></script>
 
     <script>
@@ -167,6 +168,17 @@
 
             var arrow = new L.Arrow(arrowData, arrowOptions);
             arrow.addTo(vectormap);
+
+
+            var myIcon = L.divIcon({
+            html: '<div><span style="color:' + xianse + ';">' + changdu0 + ' cm/s</span></div>',
+            className: 'my-div-icon',
+            iconSize: [200,null],
+            iconAnchor: [0,0],
+            });
+            L.marker([lat0,lng0], { icon: myIcon }).addTo(vectormap);
+
+
 
 
 
